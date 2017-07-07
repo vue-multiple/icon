@@ -9,7 +9,6 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
-  @import "../../src/iconfont/ionicons.less";
 
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
