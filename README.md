@@ -13,7 +13,7 @@
 | ----- | ----- | ----- | ----- |
 | tag | Name of tag. | String | i |
 | type | Name of icon. | String | - |
-| size | Size of icon.(you need specify the unit, default is px) | Number | String | - |
+| size | Size of icon.(you need specify the unit, default is px) | Number/String | - |
 | color | Color of icon. | String | - |
 
 
@@ -34,4 +34,7 @@ npm run demo:prepublish
 
 # build for production with minification
 npm run build
+
+# generate gh-pages
+npm run deploy
 ```

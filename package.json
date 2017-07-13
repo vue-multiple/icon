@@ -33,6 +33,7 @@
   "unpkg": "lib/icon.js",
   "dependencies": {
     "clipboard": "^1.7.1",
+    "graceful-fs": "^4.1.11",
     "primer-css": "^9.0.0",
     "primer-support": "^4.0.7",
     "primer-tooltips": "^1.0.2",
