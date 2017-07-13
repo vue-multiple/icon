@@ -14,10 +14,14 @@ export default {
   },
 
   render (h) {
-    var style = {}
+    let style = {}
+    const UNITS = ['%', 'in', 'cm', 'mm', 'em', 'ex', 'pt', 'pc', 'px']
 
     if (this.size) {
-      style.fontSize = `${this.size}px`
+      let hasUnit = typeof this.size === 'string'
+        && UNITS.indexOf(this.size.replace(/\d*/, '')) > -1
+
+      style.fontSize = `${ this.size + (hasUnit ? '' : 'px')}`
     }
     if (this.color) {
       style.color = this.color
