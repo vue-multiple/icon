@@ -104,6 +104,26 @@
         </tbody>
       </table>
     </div>
+    <div class="icon-demo__item">
+      <h3 id="tu-biao-ji-he">
+        <a href="./#tu-biao-ji-he" aria-hidden="true" class="header-anchor">¶</a>
+        图标集合
+      </h3>
+      <div class="icon-search">
+        <input type="text" v-model="keyword" placeholder="输入英文关键词搜索，比如 heart">
+        <p>点击下面的图标按钮可以直接复制组件代码</p>
+      </div>
+      <div class="icons">
+        <div class="icons-item tooltipped tooltipped-s"
+             v-for="icon in icons"
+             @click="handleClickIcon(icon, $event)"
+             @mouseleave="handleMouseleave()">
+          <i :class="'vm-icon-'+icon.name" style="font-size: 32px;"></i>
+          <p>{{icon.name}}</p>
+        </div>
+        <div class="copied">copied!</div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -134,10 +154,38 @@
   </div>`
 
   import Demo from './Demo.vue'
+  import { icons } from './icons.json'
+  import Clipboard from 'clipboard'
   export default {
     data () {
       return {
-        sourcecode
+        sourcecode,
+        keyword: ''
+      }
+    },
+    computed: {
+      icons () {
+        return icons.filter(icon => {
+          return icon.name.indexOf(this.keyword) > -1
+        })
+      }
+    },
+    methods: {
+      handleClickIcon (icon) {
+        var clip = new Clipboard('.icons', {
+          text () {
+            return `<vm-icon type="${icon.name}"></vm-icon>`
+          }
+        })
+
+        clip.on('success', function (e) {
+          e.clearSelection();
+          clip.destroy();
+          console.log('copy成功')
+        })
+      },
+      handleMouseleave () {
+
       }
     },
     components: {
@@ -147,6 +195,53 @@
 </script>
 <style lang="less" rel="stylesheet/less">
   .icon-demo {
+    .icon-search {
+      margin: 20px auto 30px;
+      text-align: center;
+      input {
+        width: 500px;
+        margin: 0 auto;
+        padding: 8px 0;
+        font-size: 14px;
+        text-align: center;
+        color: #5e6d82;
+        background-color: #eff2f7;
+        border: 0;
+        border-radius: 4px;
+        outline: none;
+      }
+      p {
+        margin-top: 20px;
+      }
+    }
+    .icons {
+      position: relative;
+      overflow: hidden;
+      zoom: 1;
+      .copied {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 10px 7px;
+        background-color: black;
+        line-height: 1;
+      }
+      .icons-item {
+        float: left;
+        width: 188px;
+        height: 90px;
+        margin: 6px 6px 6px 0;
+        padding-top: 10px;
+        color: #5c6b77;
+        text-align: center;
+        cursor: pointer;
+        p {
+          margin: 5px;
+          padding-top: 15px;
+          font-size: 14px;
+        }
+      }
+    }
     .source {
       i {
         color: #8492a6;
