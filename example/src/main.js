@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Icon from '../../src/index.js'
 
+import VueHighlightJS from 'vue-highlightjs'
+Vue.use(VueHighlightJS)
+
+import Icon from '../../src/index.js'
 Vue.component(Icon.name, Icon)
 
 new Vue({

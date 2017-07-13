@@ -1,21 +1,24 @@
 <template>
   <div id="app">
-    <vm-icon type="load-d" :size="100" color="red"></vm-icon>
+    <icon-demo></icon-demo>
   </div>
 </template>
 
 <script type="es6">
-  export default {}
+  import IconDemo from './IconDemo.vue'
+  export default {
+    components: {
+      IconDemo
+    }
+  }
 </script>
 
 <style lang="less" rel="stylesheet/less">
-
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    width: 1000px;
+    margin: 60px auto;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
   }
 </style>
