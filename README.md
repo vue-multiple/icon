@@ -2,6 +2,22 @@
 
 > Vue-based icon component
 
+## Install
+
+```bash
+npm install vue-multiple-icon -S
+```
+
+## Quick Start
+
+```bash
+import Vue from 'vue'
+import VmIcon from 'vue-multiple-icon'
+import 'vue-multiple-icon/lib/icon.css'
+
+Vue.component(VmIcon.name, VmRate)
+```
+
 ## Usage
 
 ```html
@@ -16,6 +32,7 @@
 | size | Size of icon.(you need specify the unit, default is px) | Number/String | - |
 | color | Color of icon. | String | - |
 
+For more information, please refer to [Icon](https://vue-multiple.github.io/icon/) in our documentation.
 
 ## Build Setup
 
@@ -38,3 +55,7 @@ npm run build
 # generate gh-pages
 npm run deploy
 ```
+
+## LICENSE
+
+[MIT](http://opensource.org/licenses/MIT)
