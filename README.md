@@ -29,7 +29,7 @@ Vue.component(VmIcon.name, VmRate)
 | ----- | ----- | ----- | ----- |
 | tag | Name of tag. | String | i |
 | type | Name of icon. | String | - |
-| size | Size of icon.(you need specify the unit, default is px) | Number/String | - |
+| size | Size of icon.(default is px) | Number/String | - |
 | color | Color of icon. | String | - |
 
 For more information, please refer to [Icon](https://vue-multiple.github.io/icon/) in our documentation.
